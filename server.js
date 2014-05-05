@@ -10,6 +10,8 @@ var mongoose = require('mongoose');
 //connect to our database
 mongoose.connect('mongodb://node:node@novus.modulusmongo.net:27017/Iganiq80');
 
+var Bear = require('./models/bear');
+
 //configure app to use bodyParser()
 // this will let us get the data from a POST
 
@@ -19,6 +21,13 @@ var port = process.env.PORT || 8080; //set our port
 //Routes for our API
 //=================
 var router = express.Router(); //get an instance of the express Router
+
+router.use(function(req, res, next){
+	//do logging
+	console.log('Something is happening');
+	next(); //make sure we go to the next routes and don't stop here
+});
+
 
 //test router to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.get('/', function(req, res){
