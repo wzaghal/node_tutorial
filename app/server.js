@@ -6,6 +6,10 @@ var express = require('express'); //call express
 var app = express();			  //define our app using express
 var bodyParser = require('body-parser');
 
+var mongoose = require('mongoose');
+//connect to our database
+mongoose.connect('mongodb://node:node@novus.modulusmongo.net:27017/Iganiq80');
+
 //configure app to use bodyParser()
 // this will let us get the data from a POST
 
