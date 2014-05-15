@@ -11,7 +11,7 @@ var mongoose = require('mongoose');
 
 
 //connect to our database
-mongoose.connect('mongodb://wzaghal:'+ENV[MONGODB_PASSWORD]+'@ds049848.mongolab.com:49848/users');
+mongoose.connect('mongodb://wzaghal:'+process.env.MONGODB_PASSWORD+'@ds049848.mongolab.com:49848/users');
 
 var Bear = require('./models/bear');
 
