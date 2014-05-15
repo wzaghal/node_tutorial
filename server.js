@@ -11,7 +11,7 @@ var mongoose = require('mongoose');
 
 
 //connect to our database
-mongoose.connect('mongodb://wzaghal:'+process.argv[2]+'@ds049848.mongolab.com:49848/users');
+mongoose.connect('mongodb://wzaghal:'+ENV[MONGODB_PASSWORD]+'@ds049848.mongolab.com:49848/users');
 
 var Bear = require('./models/bear');
 
@@ -34,7 +34,7 @@ router.use(function(req, res, next){
 
 //test router to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.get('/', function(req, res){
-	res.json({ message: 'hooray! welcome to our api. Test:' + process.argv[2]});
+	res.json({ message: 'hooray! welcome to our api' });
 
 });
 
