@@ -11,7 +11,7 @@ var mongoose = require('mongoose');
 
 
 //connect to our database
-mongoose.connect('mongodb://wzaghal:'+process.env.MONGODB_PASSWORD+'@ds049848.mongolab.com:49848/users');
+mongoose.connect('mongodb://wzaghal:'+process.argv[2]+'@ds049848.mongolab.com:49848/users');
 
 var Bear = require('./models/bear');
 
@@ -27,7 +27,7 @@ var router = express.Router(); //get an instance of the express Router
 
 router.use(function(req, res, next){
 	//do logging
-	console.log('Something is happening');
+	console.log('Something is happening: ' + process.argv + ' ' + process.env.MONGODB_PASSWORD);
 	next(); //make sure we go to the next routes and don't stop here
 });
 
@@ -123,3 +123,4 @@ app.use('/api', router);
 
 app.listen(port);
 console.log('Magic happens on port' + port);
+	console.log('Something is happening: ' + process.argv + ' ' + process.env.MONGODB_PASSWORD);
