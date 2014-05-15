@@ -123,4 +123,4 @@ app.use('/api', router);
 
 app.listen(port);
 console.log('Magic happens on port' + port);
-	console.log('Something is happening: ' + process.argv + ' ' + process.env.MONGODB_PASSWORD);
+	console.log('Something is happening: ' + process.env.MONGODB_PASSWORD);
